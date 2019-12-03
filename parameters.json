@@ -53,7 +53,7 @@
             "value": "devops-ip"
         },
         "publicIpAddressType": {
-            "value": "Dynamic"
+            "value": "Static"
         },
         "publicIpAddressSku": {
             "value": "Basic"
