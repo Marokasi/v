@@ -29,9 +29,6 @@
         "publicIpAddressSku": {
             "type": "string"
         },
-        "virtualMachineSize": {
-            "type": "string"
-        },
         "adminUsername": {
             "type": "string"
         },
@@ -75,6 +72,7 @@
          "virtualMachineName": "devops",
          "virtualMachineRG": "validate",
          "osDiskType": "Premium_LRS",
+         "virtualMachineSize": "Standard_DS1_v2",
 
         "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]",
         "vnetId": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
@@ -155,7 +153,7 @@
             ],
             "properties": {
                 "hardwareProfile": {
-                    "vmSize": "[parameters('virtualMachineSize')]"
+                    "vmSize": "[variables('virtualMachineSize')]"
                 },
                 "storageProfile": {
                     "osDisk": {

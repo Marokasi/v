@@ -65,9 +65,6 @@
         "publicIpAddressSku": {
             "value": "Basic"
         },
-        "virtualMachineSize": {
-            "value": "Standard_DS1_v2"
-        },
         "adminUsername": {
             "value": "max"
         },
