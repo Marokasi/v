@@ -56,17 +56,8 @@
         "adminPassword": {
             "value": "!caInfire45"
         },
-        "diagnosticsStorageAccountName": {
-            "value": "validatediag183"
-        },
         "diagnosticsStorageAccountId": {
             "value": "Microsoft.Storage/storageAccounts/validatediag183"
-        },
-        "diagnosticsStorageAccountType": {
-            "value": "Standard_LRS"
-        },
-        "diagnosticsStorageAccountKind": {
-            "value": "Storage"
         }
     }
 }
