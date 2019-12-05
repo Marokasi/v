@@ -20,16 +20,7 @@
         "adminPassword": {
             "type": "secureString"
         },
-        "diagnosticsStorageAccountName": {
-            "type": "string"
-        },
         "diagnosticsStorageAccountId": {
-            "type": "string"
-        },
-        "diagnosticsStorageAccountType": {
-            "type": "string"
-        },
-        "diagnosticsStorageAccountKind": {
             "type": "string"
         }
     },
@@ -47,7 +38,6 @@
         "autoShutdownNotificationLocale": "en",
         "autoShutdownNotificationEmail": "max.plokhuta@exemplarsystems.com",
          "publicIpAddressName": "devops-ip",
-<<<<<<< HEAD
          "publicIpAddressType": "Static",
          "publicIpAddressSku": "Basic",
          "diagnosticsStorageAccountName": "validatediag183",   
@@ -56,10 +46,6 @@
          "diagnosticsStorageAccountKind": "Storage",
          "networkSecurityGroupName": "devops-nsg",
          "virtualNetworkName": "validate-vnet",
-=======
-        "publicIpAddressType": "Static",
-        "publicIpAddressSku": "Basic",
->>>>>>> parent of e0d0f76... added diagnostic account variable
             
        
             
@@ -140,7 +126,7 @@
             "location": "[variables('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Network/networkInterfaces/', variables('networkInterfaceName'))]",
-                "[concat('Microsoft.Storage/storageAccounts/', parameters('diagnosticsStorageAccountName'))]"
+                "[concat('Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]"
             ],
             "properties": {
                 "hardwareProfile": {
@@ -179,20 +165,20 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[concat('https://', parameters('diagnosticsStorageAccountName'), '.blob.core.windows.net/')]"
+                        "storageUri": "[concat('https://', variables('diagnosticsStorageAccountName'), '.blob.core.windows.net/')]"
                     }
                 }
             }
         },
         {
-            "name": "[parameters('diagnosticsStorageAccountName')]",
+            "name": "[variables('diagnosticsStorageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2019-06-01",
             "location": "[variables('location')]",
             "properties": {},
-            "kind": "[parameters('diagnosticsStorageAccountKind')]",
+            "kind": "[variables('diagnosticsStorageAccountKind')]",
             "sku": {
-                "name": "[parameters('diagnosticsStorageAccountType')]"
+                "name": "[variables('diagnosticsStorageAccountType')]"
             }
         },
         {
