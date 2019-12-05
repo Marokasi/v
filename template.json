@@ -2,9 +2,6 @@
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "networkSecurityGroupName": {
-            "type": "string"
-        },
         "networkSecurityGroupRules": {
             "type": "array"
         },
@@ -47,13 +44,15 @@
          "diagnosticsStorageAccountId": "Microsoft.Storage/storageAccounts/validatediag183",     
          "diagnosticsStorageAccountType": "Standard_LRS",   
          "diagnosticsStorageAccountKind": "Storage",
+         "networkSecurityGroupName": "devops-nsg",
+        "virtualNetworkName": "validate-vnet",
             
        
             
 
 
-        "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]",
-        "vnetId": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
+        "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]",
+        "vnetId": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks', variables('networkInterfaceName'))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]"
     },
     "resources": [
@@ -63,8 +62,8 @@
             "apiVersion": "2019-07-01",
             "location": "[variables('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Network/networkSecurityGroups/', parameters('networkSecurityGroupName'))]",
-                "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]",
+                "[concat('Microsoft.Network/networkSecurityGroups/', variables('networkSecurityGroupName'))]",
+                "[concat('Microsoft.Network/virtualNetworks/', variables('networkInterfaceName'))]",
                 "[concat('Microsoft.Network/publicIpAddresses/', variables('publicIpAddressName'))]"
             ],
             "properties": {
@@ -88,7 +87,7 @@
             }
         },
         {
-            "name": "[parameters('networkSecurityGroupName')]",
+            "name": "[variables('networkSecurityGroupName')]",
             "type": "Microsoft.Network/networkSecurityGroups",
             "apiVersion": "2019-02-01",
             "location": "[variables('location')]",
@@ -97,7 +96,7 @@
             }
         },
         {
-            "name": "[parameters('virtualNetworkName')]",
+            "name": "[variables('networkInterfaceName')]",
             "type": "Microsoft.Network/virtualNetworks",
             "apiVersion": "2019-04-01",
             "location": "[variables('location')]",
