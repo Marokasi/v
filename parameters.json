@@ -65,9 +65,6 @@
         "publicIpAddressSku": {
             "value": "Basic"
         },
-        "osDiskType": {
-            "value": "Premium_LRS"
-        },
         "virtualMachineSize": {
             "value": "Standard_DS1_v2"
         },

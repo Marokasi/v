@@ -29,9 +29,6 @@
         "publicIpAddressSku": {
             "type": "string"
         },
-        "osDiskType": {
-            "type": "string"
-        },
         "virtualMachineSize": {
             "type": "string"
         },
@@ -77,6 +74,7 @@
          "networkInterfaceName": "devops38",
          "virtualMachineName": "devops",
          "virtualMachineRG": "validate",
+         "osDiskType": "Premium_LRS",
 
         "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]",
         "vnetId": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
@@ -163,7 +161,7 @@
                     "osDisk": {
                         "createOption": "fromImage",
                         "managedDisk": {
-                            "storageAccountType": "[parameters('osDiskType')]"
+                            "storageAccountType": "[variables('osDiskType')]"
                         }
                     },
                     "imageReference": {
