@@ -8,9 +8,6 @@
         "subnetName": {
             "type": "string"
         },
-        "virtualNetworkName": {
-            "type": "string"
-        },
         "addressPrefixes": {
             "type": "array"
         },
@@ -45,7 +42,7 @@
          "diagnosticsStorageAccountType": "Standard_LRS",   
          "diagnosticsStorageAccountKind": "Storage",
          "networkSecurityGroupName": "devops-nsg",
-        "virtualNetworkName": "validate-vnet",
+         "virtualNetworkName": "validate-vnet",
             
        
             
