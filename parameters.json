@@ -65,9 +65,6 @@
         "publicIpAddressSku": {
             "value": "Basic"
         },
-        "virtualMachineRG": {
-            "value": "validate"
-        },
         "osDiskType": {
             "value": "Premium_LRS"
         },
