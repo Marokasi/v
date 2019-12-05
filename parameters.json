@@ -65,9 +65,6 @@
         "publicIpAddressSku": {
             "value": "Basic"
         },
-        "virtualMachineName": {
-            "value": "devops"
-        },
         "virtualMachineRG": {
             "value": "validate"
         },
