@@ -63,7 +63,7 @@
             "value": "max"
         },
         "adminPassword": {
-            "value": "!caInfire45"
+            "value": null
         },
         "diagnosticsStorageAccountId": {
             "value": "Microsoft.Storage/storageAccounts/validatediag183"
