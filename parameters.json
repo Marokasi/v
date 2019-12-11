@@ -25,19 +25,6 @@
                         "destinationAddressPrefix": "*",
                         "destinationPortRange": "3389"
                     }
-                },
-                {
-                    "name": "HTTP",
-                    "properties": {
-                        "priority": 400,
-                        "protocol": "TCP",
-                        "access": "Allow",
-                        "direction": "Inbound",
-                        "sourceAddressPrefix": "*",
-                        "sourcePortRange": "*",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "80"
-                    }
                 }
             ]
         },
