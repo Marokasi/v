@@ -2,12 +2,6 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "location": {
-            "value": "canadacentral"
-        },
-        "networkInterfaceName": {
-            "value": "devops38"
-        },
         "networkSecurityGroupName": {
             "value": "devops-nsg"
         },
@@ -25,15 +19,31 @@
                         "destinationAddressPrefix": "*",
                         "destinationPortRange": "3389"
                     }
+                },
+                {
+                    "name": "HTTP",
+                    "properties": {
+                        "priority": 400,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "80"
+                    }
                 }
             ]
         },
         "subnetName": {
             "value": "default"
         },
+        "virtualNetworkName": {
+            "value": "validate-vnet"
+        },
         "addressPrefixes": {
             "value": [
-                "10.1.0.0/16"
+                "10.1.0.0/24"
             ]
         },
         "subnets": {
@@ -41,19 +51,37 @@
                 {
                     "name": "default",
                     "properties": {
-                        "addressPrefix": "10.1.1.0/24"
+                        "addressPrefix": "10.1.0.0/24"
                     }
                 }
             ]
+        },
+        "publicIpAddressName": {
+            "value": "devops-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Static"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
         },
         "adminUsername": {
             "value": "max"
         },
         "adminPassword": {
-            "value": null
+            "value": "!caInfire45"
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "validatediag183"
         },
         "diagnosticsStorageAccountId": {
             "value": "Microsoft.Storage/storageAccounts/validatediag183"
+        },
+        "diagnosticsStorageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "diagnosticsStorageAccountKind": {
+            "value": "Storage"
         }
     }
 }
