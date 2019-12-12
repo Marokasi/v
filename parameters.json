@@ -56,9 +56,6 @@
                 }
             ]
         },
-        "publicIpAddressName": {
-            "value": "devops-ip"
-        },
         "publicIpAddressType": {
             "value": "Static"
         },
