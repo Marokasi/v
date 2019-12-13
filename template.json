@@ -5,9 +5,6 @@
         "networkSecurityGroupRules": {
             "type": "array"
         },
-        "subnetName": {
-            "type": "string"
-        },
         "virtualNetworkName": {
             "type": "string"
         },
