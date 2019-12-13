@@ -44,11 +44,11 @@
     },
     "variables": {
 
+
+        "subnetName": "default",
+
+
          "networkSecurityGroupName": "devops-nsg",
-            
-        
-
-
          "publicIpAddressName": "devops-ip",
          "location": "canadacentral", 
          "networkInterfaceName": "devops38",
@@ -65,7 +65,7 @@
             
         "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]",
         "vnetId": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-        "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]"
+        "subnetRef": "[concat(variables('vnetId'), '/subnets/', variables('subnetName'))]"
     },
     "resources": [
         {

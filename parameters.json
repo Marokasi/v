@@ -32,9 +32,6 @@
                 }
             ]
         },
-        "subnetName": {
-            "value": "default"
-        },
         "virtualNetworkName": {
             "value": "validate-vnet"
         },
